@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header() {
+const Header = () => {
   return (
     <header
       style={{
@@ -12,17 +12,11 @@ function Header() {
     >
       <h1>Where in the world?</h1>
       <div>
-        <input
-          type="checkbox"
-          class="custom-control-input"
-          id="customSwitch1"
-        />
-        <label class="custom-control-label" for="customSwitch1">
-          Dark Mode
-        </label>
+        <input type="checkbox" id="customSwitch1" />
+        <label htmlFor="customSwitch1">Dark Mode</label>
       </div>
     </header>
   );
-}
+};
 
 export default Header;
