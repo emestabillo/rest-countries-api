@@ -1,23 +1,10 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const baseURL = "https://restcountries.eu/rest/v2/all";
-
-const CountriesList = () => {
-  const [countries, setCountries] = useState(null);
-
-  useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setCountries(response.data);
-    });
-  }, []);
-
-  if (!countries) return null;
-
+const CountriesList = ({ filteredCountries }) => {
   return (
     <>
-      {countries.map((country, alpha3Code) => {
+      {filteredCountries.map((country, alpha3Code) => {
         const { name, population, region, capital, flag } = country;
         return (
           <article key={alpha3Code}>
