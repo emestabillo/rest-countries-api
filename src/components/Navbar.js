@@ -1,8 +1,8 @@
 import React from "react";
 
-const Header = () => {
+const Navbar = () => {
   return (
-    <header
+    <nav
       style={{
         display: "flex",
         justifyContent: "space-between",
@@ -15,8 +15,8 @@ const Header = () => {
         <input type="checkbox" id="customSwitch1" />
         <label htmlFor="customSwitch1">Dark Mode</label>
       </div>
-    </header>
+    </nav>
   );
 };
 
-export default Header;
+export default Navbar;

@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2c769c4c-6555-4db4-a4dc-a72a21ad1a6a/deploy-status)](https://app.netlify.com/sites/emestabillo-rest-countries-api/deploys)
+
 Your task is to integrate with the [REST Countries API](https://restcountries.eu) to pull country data and display it like in the designs.
 
 You can use any JavaScript framework/library on the front-end such as [React](https://reactjs.org) or [Vue](https://vuejs.org). You also have complete control over which packages you use to do things like make HTTP requests or style your project.
