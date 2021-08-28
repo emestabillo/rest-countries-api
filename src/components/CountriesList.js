@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const baseURL = "https://restcountries.eu/rest/v2/all";
 
@@ -20,13 +21,13 @@ const CountriesList = () => {
         const { name, population, region, capital, flag } = country;
         return (
           <article key={alpha3Code}>
-            <a href="">
+            <Link to={`/countries/${name}`}>
               <img src={flag} alt={`Flag of ${name}`} />
               <h1>{name}</h1>
               <p>Population: {population}</p>
               <p>Region: {region}</p>
               <p>Capital: {capital}</p>
-            </a>
+            </Link>
           </article>
         );
       })}

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Filter = () => {
+const FilterDropdown = () => {
   return (
     <select>
       <option value="">Filter by Region</option>
@@ -12,4 +12,4 @@ const Filter = () => {
   );
 };
 
-export default Filter;
+export default FilterDropdown;

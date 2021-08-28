@@ -1,7 +1,7 @@
 import React from "react";
 
-const Input = () => {
+const SearchBar = () => {
   return <input type="text" placeholder="Search for a country..." />;
 };
 
-export default Input;
+export default SearchBar;
