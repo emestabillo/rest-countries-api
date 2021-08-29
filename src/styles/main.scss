@@ -1,4 +1,8 @@
-// @import "../node_modules/bootstrap/scss/bootstrap";
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
-@import "abstracts/variables";
-@import "base/base";
+// @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/dist/css/bootstrap-grid.min.css";
+
+@import "abstracts/variables", "abstracts/mixins";
+
+@import "base/helpers", "base/base";
+
+@import "components/navbar";

@@ -1,15 +1,18 @@
 import React from "react";
-import Nav from "react-bootstrap/Nav";
+import { ReactComponent as Moon } from "../assets/icon-moon.svg";
 
 const Navbar = () => {
   return (
-    <Nav as="nav">
+    <nav className="navbar wrapper">
       <h1>Where in the world?</h1>
       <div>
-        <input type="checkbox" id="customSwitch1" />
-        <label htmlFor="customSwitch1">Dark Mode</label>
+        <label htmlFor="themeSwitch" className="label">
+          <input type="checkbox" id="themeSwitch" className="toggle" />
+          <Moon aria-hidden="true" focusable="false" className="moon" />
+          Dark Mode
+        </label>
       </div>
-    </Nav>
+    </nav>
   );
 };
 
