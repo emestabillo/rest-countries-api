@@ -32,9 +32,9 @@ const HomeLayout = () => {
 
   console.log(filteredCountries);
 
-  const filteredRegion = countries.filter((country) =>
-    country.region.toLowerCase().includes(region.toLocaleLowerCase())
-  );
+  // const filteredRegion = countries.filter((country) =>
+  //   country.region.toLowerCase().includes(region.toLocaleLowerCase())
+  // );
   // ? allCountries.filter(
   //   (country) => country.region === region
   // )
@@ -54,13 +54,7 @@ const HomeLayout = () => {
   return (
     <>
       <SearchBar searchedTerm={searchedTerm} handleSearch={handleSearch} />
-      <select
-        // onChange={(e) => filterRegions(e.target.value)}
-        // value={value}
-        // name="region"
-        onChange={handleRegionChange}
-        value={filteredRegion}
-      >
+      <select onChange={handleRegionChange} value={filteredRegion}>
         <option value="">Filter by Region</option>
         <option value="Africa">Africa</option>
         <option value="America">America</option>
