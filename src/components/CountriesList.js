@@ -10,7 +10,7 @@ const CountriesList = ({ filteredCountries }) => {
           <article key={alpha3Code}>
             <Link to={`/countries/${name}`}>
               <img src={flag} alt={`Flag of ${name}`} />
-              <h1>{name}</h1>
+              <h2>{name}</h2>
               <p>Population: {population}</p>
               <p>Region: {region}</p>
               <p>Capital: {capital}</p>

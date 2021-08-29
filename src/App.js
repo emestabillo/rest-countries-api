@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import MainWrapper from "./components/MainWrapper";
 import HomeLayout from "./components/HomeLayout";
@@ -10,10 +10,14 @@ function App() {
     <Router>
       <Navbar />
       <MainWrapper>
-        <Route exact path="/">
-          <HomeLayout />
-        </Route>
-        <Route path="/countries/:name" children={<CountryDetail />}></Route>
+        <Switch>
+          <Route exact path="/">
+            <HomeLayout />
+          </Route>
+          <Route path="/countries/:name">
+            <CountryDetail />
+          </Route>
+        </Switch>
       </MainWrapper>
     </Router>
   );
