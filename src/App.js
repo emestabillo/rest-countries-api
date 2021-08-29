@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import MainWrapper from "./components/MainWrapper";
 import HomeLayout from "./components/HomeLayout";
 import CountryDetail from "./components/CountryDetail";
+import "./styles/main.scss";
 
 function App() {
   return (
