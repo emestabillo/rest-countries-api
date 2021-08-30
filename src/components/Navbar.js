@@ -6,7 +6,7 @@ const Navbar = () => {
   const { toggle } = useContext(ThemeContext);
 
   return (
-    <nav className="navbar wrapper">
+    <nav className="navbar">
       <h1>Where in the world?</h1>
       <div>
         <label htmlFor="themeSwitch" className="label">
