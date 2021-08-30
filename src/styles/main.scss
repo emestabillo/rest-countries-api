@@ -1,0 +1,10 @@
+// @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/dist/css/bootstrap-grid.min.css";
+
+@import "abstracts/variables", "abstracts/mixins";
+
+@import "base/base", "base/helpers";
+
+@import "components/navbar", "components/searchbar",
+  "components/filter-dropdown", "components/country-card",
+  "components/countries-list", "components/country-detail";

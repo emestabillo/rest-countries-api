@@ -1,0 +1,44 @@
+.navbar {
+  padding-top: 1.875rem;
+  padding-bottom: 1.875rem;
+  background-color: var(--clr-accent);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+
+  @include lg {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 2rem;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+}
+
+.toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-icon {
+  margin-right: 0.625rem;
+}
+
+.sun {
+  vertical-align: sub;
+}

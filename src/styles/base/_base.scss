@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// *:not(body) {
+//   transition: all 0.2s ease;
+// }
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--clr-text);
+  background-color: var(--clr-background);
+}
+
+h1 {
+  font-size: clamp(0.875rem, 4.2vw, 1.5rem);
+  line-height: 1.43;
+  font-weight: var(--fw-bold);
+  margin: 0;
+}
+
+main {
+  padding-top: 2rem;
+}
+
+h2,
+h3 {
+  // font-weight: var(--fw-bold);
+}
+
+h1 {
+  // font-weight: var(--fw-light);
+  // line-height: 4rem;
+  // letter-spacing: -0.4px;
+}
+
+h2 {
+  // line-height: 125%;
+  // letter-spacing: -0.4px;
+}
+
+h3 {
+  // font-size: 1.8rem;
+  // letter-spacing: -0.22px;
+}
+
+p,
+strong {
+  // font-size: 1.5rem;
+  // line-height: 167%;
+  // letter-spacing: -0.19px;
+}
+
+a,
+button {
+  // color: var(--clr-white);
+  // letter-spacing: 2px;
+  // text-decoration: none;
+  // text-transform: uppercase;
+  // font-size: 1.4rem;
+  // font-weight: var(--fw-semi-bold);
+  // line-height: 114%;
+}
+
+a,
+button,
+input,
+select,
+.phone {
+  // &:focus {
+  //   outline: 2px dotted var(--clr-beaver);
+  //   outline-offset: 4px;
+  // }
+
+  // &::-moz-focus-inner {
+  //   border: 0;
+  // }
+}
+
+li {
+  // list-style: none;
+}

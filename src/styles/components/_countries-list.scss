@@ -1,0 +1,8 @@
+.countries-grid {
+  margin: 0 auto;
+
+  @include med {
+    row-gap: 2.5rem;
+    column-gap: 2.5rem;
+  }
+}

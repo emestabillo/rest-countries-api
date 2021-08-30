@@ -1,19 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
+import { ReactComponent as Moon } from "../assets/icon-moon.svg";
+import { ReactComponent as Sun } from "../assets/icon-sun.svg";
 
 const Navbar = () => {
+  const { dark, toggle } = useContext(ThemeContext);
+
   return (
-    <nav
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        border: "1px solid salmon",
-      }}
-    >
-      <h1>Where in the world?</h1>
-      <div>
-        <input type="checkbox" id="customSwitch1" />
-        <label htmlFor="customSwitch1">Dark Mode</label>
+    <nav className="navbar">
+      <div className="wrapper nav-wrapper">
+        <h1>Where in the world?</h1>
+        <div>
+          <label htmlFor="themeSwitch" className="label">
+            <input
+              type="checkbox"
+              id="themeSwitch"
+              className="toggle"
+              onClick={() => toggle()}
+            />
+            {dark ? (
+              <Sun
+                aria-hidden="true"
+                focusable="false"
+                className="theme-icon sun"
+              />
+            ) : (
+              <Moon
+                aria-hidden="true"
+                focusable="false"
+                className="theme-icon"
+              />
+            )}
+            {dark ? "Light Mode" : "Dark Mode"}
+          </label>
+        </div>
       </div>
     </nav>
   );

@@ -1,23 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Row } from "react-bootstrap";
+import CountryCard from "./CountryCard";
 
-const CountriesList = ({ filteredCountries }) => {
+const CountriesList = ({ allCountries }) => {
   return (
     <>
-      {filteredCountries.map((country, alpha3Code) => {
-        const { name, population, region, capital, flag } = country;
-        return (
-          <article key={alpha3Code}>
-            <Link to={`/countries/${name}`}>
-              <img src={flag} alt={`Flag of ${name}`} />
-              <h2>{name}</h2>
-              <p>Population: {population}</p>
-              <p>Region: {region}</p>
-              <p>Capital: {capital}</p>
-            </Link>
-          </article>
-        );
-      })}
+      <Row as="section" className="countries-grid">
+        {allCountries.map((country, alpha3Code) => {
+          const { name, population, region, capital, flag } = country;
+          return (
+            <CountryCard
+              name={name}
+              population={population}
+              region={region}
+              capital={capital}
+              flag={flag}
+              key={alpha3Code}
+            />
+          );
+        })}
+      </Row>
     </>
   );
 };
