@@ -3,7 +3,7 @@ import { ThemeContext } from "../context/ThemeContext";
 import { ReactComponent as Moon } from "../assets/icon-moon.svg";
 
 const Navbar = () => {
-  const { toggle } = useContext(ThemeContext);
+  const { dark, toggle } = useContext(ThemeContext);
 
   return (
     <nav className="navbar">
@@ -17,7 +17,7 @@ const Navbar = () => {
             onClick={() => toggle()}
           />
           <Moon aria-hidden="true" focusable="false" className="moon" />
-          Dark Mode
+          {dark ? "Light Mode" : "Dark Mode"}
         </label>
       </div>
     </nav>
