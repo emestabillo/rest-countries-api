@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { ReactComponent as Arrow } from "../assets/icon-arrow.svg";
+import { Col, Row } from "react-bootstrap";
 
 const CountryDetail = () => {
   const [country, setCountry] = useState([]);
   const { name } = useParams();
+  const { dark } = useContext(ThemeContext);
 
   // //Create history reference
   // let history = useHistory();
@@ -34,7 +37,7 @@ const CountryDetail = () => {
   return (
     <>
       <Link to="/" className="back">
-        <Arrow />
+        <Arrow className={`${dark ? "white-arrow" : ""}`} />
         Back
       </Link>
       {country.map((c) => {
@@ -53,52 +56,77 @@ const CountryDetail = () => {
         } = c;
 
         return (
-          <article>
-            <img src={flag} alt={`Flag of ${name}`} />
-            <h2>{name}</h2>
-            <ul style={{ columnCount: 2 }}>
-              <li>
-                <span>Native Name:</span>
-                {nativeName}
-              </li>
-              <li>
-                <span>Population:</span>
-                {population}
-              </li>
-              <li>
-                <span>Region:</span>
-                {region}
-              </li>
-              <li>
-                <span>Sub Region:</span>
-                {subregion}
-              </li>
-              <li>
-                <span>Capital:</span>
-                {capital}
-              </li>
-              <li>
-                <span>Top Level Domain:</span>
-                {topLevelDomain}
-              </li>
-              <li>
-                <span>Currencies:</span>
-                {currencies[0].name}
-              </li>
-              <li>
-                <span>Languages:</span>
-                {languages[0].name}
-              </li>
-            </ul>
-            {borders && (
-              <div>
-                Border Countries:{" "}
-                {borders.map((b) => {
-                  return <Link to={`/countries/${country.b}`}>{b}</Link>;
-                })}
+          <Row as="article" className="detail-card">
+            <Col lg={6}>
+              <img
+                src={flag}
+                alt={`Flag of ${name}`}
+                className="detail-card__flag "
+              />
+            </Col>
+            <Col className="facts lg={6}">
+              <h1 className="detail-card__name">{name}</h1>
+              <div className="detail-card__list">
+                <ul className="detail-card__column">
+                  <li className="detail-card__item">
+                    <span className="item-label">Native Name: </span>
+                    {nativeName}
+                  </li>
+                  <li className="detail-card__item">
+                    <span className="item-label">Population: </span>
+                    {population.toLocaleString()}
+                  </li>
+                  <li className="detail-card__item">
+                    <span className="item-label">Region: </span>
+                    {region}
+                  </li>
+                  <li className="detail-card__item">
+                    <span className="item-label">Sub Region: </span>
+                    {subregion}
+                  </li>
+                  <li className="detail-card__item">
+                    <span className="item-label">Capital: </span>
+                    {capital}
+                  </li>
+                </ul>
+                <ul className="detail-card__column">
+                  <li className="detail-card__item">
+                    <span className="item-label">Top Level Domain: </span>
+                    {topLevelDomain}
+                  </li>
+                  <li className="detail-card__item">
+                    <span className="item-label">Currencies: </span>
+                    {currencies[0].name}
+                  </li>
+                  <li className="detail-card__item">
+                    <span className="item-label">Languages: </span>
+                    {languages.map((language, i) => {
+                      if (languages.length === 0 || i === languages.length - 1)
+                        return language.name;
+                      else return `${language.name}, `;
+                    })}
+                  </li>
+                </ul>
               </div>
-            )}
-          </article>
+              {borders.length > 0 && (
+                <div className="borders">
+                  <h2 className="borders__heading">Border Countries:</h2>
+                  <div className="borders__container">
+                    {borders.map((border, name) => {
+                      return (
+                        <Link
+                          to={`/countries/${name}`}
+                          className="borders__link"
+                        >
+                          {border}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </Col>
+          </Row>
         );
       })}
     </>
