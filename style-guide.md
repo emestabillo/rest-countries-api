@@ -11,11 +11,11 @@ The designs were created to the following widths:
 
 ### Neutral
 
-- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
-- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
-- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
-- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
-- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%) //dark accent card
+- Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%) //dark bg body
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%) //light body text
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%) //light input text
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%) //light bg body
 - White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
 
 ## Typography
@@ -23,7 +23,7 @@ The designs were created to the following widths:
 ### Body Copy
 
 - Homepage Items: 14px
-- Detail Page: 16px 
+- Detail Page: 16px
 
 ### Fonts
 
