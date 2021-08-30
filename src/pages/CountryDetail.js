@@ -80,43 +80,62 @@ const CountryDetail = () => {
                     <span className="item-label">Region: </span>
                     {region}
                   </li>
-                  <li className="detail-card__item">
-                    <span className="item-label">Sub Region: </span>
-                    {subregion}
-                  </li>
-                  <li className="detail-card__item">
-                    <span className="item-label">Capital: </span>
-                    {capital}
-                  </li>
+                  {subregion && (
+                    <li className="detail-card__item">
+                      <span className="item-label">Sub Region: </span>
+                      {subregion}
+                    </li>
+                  )}
+                  {capital && (
+                    <li className="detail-card__item">
+                      <span className="item-label">Capital: </span>
+                      {capital}
+                    </li>
+                  )}
                 </ul>
                 <ul className="detail-card__column">
                   <li className="detail-card__item">
                     <span className="item-label">Top Level Domain: </span>
                     {topLevelDomain}
                   </li>
-                  <li className="detail-card__item">
-                    <span className="item-label">Currencies: </span>
-                    {currencies[0].name}
-                  </li>
-                  <li className="detail-card__item">
-                    <span className="item-label">Languages: </span>
-                    {languages.map((language, i) => {
-                      if (languages.length === 0 || i === languages.length - 1)
-                        return language.name;
-                      else return `${language.name}, `;
-                    })}
-                  </li>
+                  {currencies.length > 0 && (
+                    <li className="detail-card__item">
+                      <span className="item-label">Currencies: </span>
+                      {currencies.map((currency, i) => {
+                        if (
+                          currencies.length === 1 ||
+                          i === currencies.length - 1
+                        )
+                          return currency.name;
+                        else return `${currency.name}, `;
+                      })}
+                    </li>
+                  )}
+                  {languages.length > 0 && (
+                    <li className="detail-card__item">
+                      <span className="item-label">Languages: </span>
+                      {languages.map((language, i) => {
+                        if (
+                          languages.length === 1 ||
+                          i === languages.length - 1
+                        )
+                          return language.name;
+                        else return `${language.name}, `;
+                      })}
+                    </li>
+                  )}
                 </ul>
               </div>
               {borders.length > 0 && (
                 <div className="borders">
                   <h2 className="borders__heading">Border Countries:</h2>
                   <div className="borders__container">
-                    {borders.map((border, name) => {
+                    {borders.map((border, i) => {
                       return (
                         <Link
                           to={`/countries/${name}`}
                           className="borders__link"
+                          key={i}
                         >
                           {border}
                         </Link>

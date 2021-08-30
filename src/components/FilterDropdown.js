@@ -70,6 +70,13 @@ const FilterDropdown = ({ filterByRegion }) => {
         >
           Oceania
         </li>
+        <li
+          className="filter__item"
+          value="asia"
+          onClick={(val) => filterByRegion(val.target.value)}
+        >
+          Polar
+        </li>
       </ul>
     </div>
   );
