@@ -8,8 +8,6 @@ const baseURL = "https://restcountries.eu/rest/v2/all";
 
 const HomeLayout = () => {
   const [allCountries, setAllCountries] = useState(null);
-  const [searchedTerm, setSearchedTerm] = useState("");
-  const [filteredRegion, setFilteredRegion] = useState("");
 
   //All countries
   useEffect(() => {
@@ -20,48 +18,28 @@ const HomeLayout = () => {
 
   if (!allCountries) return null;
 
-  const handleSearch = (e) => {
-    setSearchedTerm(e.target.value);
+  const filterByRegion = async (region) => {
+    if (region === "") return;
+    const res = await fetch(
+      `https://restcountries.eu/rest/v2/region/${region}`
+    );
+    const data = await res.json();
+    await setAllCountries(data);
   };
 
-  const filteredCountries = !searchedTerm
-    ? allCountries
-    : allCountries.filter((c) =>
-        c.name.toLowerCase().includes(searchedTerm.toLowerCase())
-      );
-
-  console.log(filteredCountries);
-
-  // const filteredRegion = countries.filter((country) =>
-  //   country.region.toLowerCase().includes(region.toLocaleLowerCase())
-  // );
-  // ? allCountries.filter(
-  //   (country) => country.region === region
-  // )
-  // ;
-
-  //Filter by region
-  // const filterRegions = (region) => {
-  //   setAllCountries(
-  //     allCountries.filter((country) => country.region === region)
-  //   );
-  // };
-
-  const handleRegionChange = (e) => {
-    setFilteredRegion(e.target.value);
+  const searchCountry = async (term) => {
+    if (term.length < 3 || term === "") return;
+    const res = await fetch(`https://restcountries.eu/rest/v2/name/${term}`);
+    const data = await res.json();
+    await console.log(data);
+    await setAllCountries(data);
   };
 
   return (
     <>
-      <SearchBar searchedTerm={searchedTerm} handleSearch={handleSearch} />
-      <FilterDropdown
-        handleRegionChange={handleRegionChange}
-        filteredCountries={filteredCountries}
-      />
-      <CountriesList
-        filteredCountries={filteredCountries}
-        filteredRegion={filteredRegion}
-      />
+      <SearchBar searchCountry={searchCountry} />
+      <FilterDropdown filterByRegion={filterByRegion} />
+      <CountriesList allCountries={allCountries} />
     </>
   );
 };

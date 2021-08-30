@@ -1,18 +1,18 @@
 import React from "react";
 
-const FilterDropdown = ({ handleRegionChange, filteredRegion }) => {
+const FilterDropdown = ({ filterByRegion }) => {
   return (
     <select
-      onChange={handleRegionChange}
-      value={filteredRegion}
+      onChange={(val) => filterByRegion(val.target.value)}
       name="region"
       className="select"
     >
       <option value="">Filter by Region</option>
-      <option value="Africa">Africa</option>
-      <option value="America">America</option>
-      <option value="Europe">Europe</option>
-      <option value="Oceania">Oceania</option>
+      <option value="africa">Africa</option>
+      <option value="america">America</option>
+      <option value="asia">Asia</option>
+      <option value="europe">Europe</option>
+      <option value="oceania">Oceania</option>
     </select>
   );
 };
