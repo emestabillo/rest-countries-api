@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2c769c4c-6555-4db4-a4dc-a72a21ad1a6a/deploy-status)](https://app.netlify.com/sites/emestabillo-rest-countries-api/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b2347caf-c1ed-4953-8149-d12c2508e6a0/deploy-status)](https://app.netlify.com/sites/emestabillo-rest-countries-api/deploys)
 
 Your task is to integrate with the [REST Countries API](https://restcountries.eu) to pull country data and display it like in the designs.
 

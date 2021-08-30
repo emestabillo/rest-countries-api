@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { ReactComponent as Arrow } from "../assets/icon-arrow.svg";
 
 const CountryDetail = () => {
   const [country, setCountry] = useState([]);
@@ -32,7 +33,10 @@ const CountryDetail = () => {
 
   return (
     <>
-      <Link to="/">Back</Link>
+      <Link to="/" className="back">
+        <Arrow />
+        Back
+      </Link>
       {country.map((c) => {
         const {
           flag,
