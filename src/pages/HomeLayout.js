@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import SearchBar from "./SearchBar";
-import FilterDropdown from "./FilterDropdown";
-import CountriesList from "./CountriesList";
+import SearchBar from "../components/SearchBar";
+import FilterDropdown from "../components/FilterDropdown";
+import CountriesList from "../components/CountriesList";
 
 const baseURL = "https://restcountries.eu/rest/v2/all";
 
@@ -54,7 +54,6 @@ const HomeLayout = () => {
   return (
     <>
       <SearchBar searchedTerm={searchedTerm} handleSearch={handleSearch} />
-
       <FilterDropdown
         handleRegionChange={handleRegionChange}
         filteredCountries={filteredCountries}

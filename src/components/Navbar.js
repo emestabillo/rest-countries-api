@@ -8,27 +8,32 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <h1>Where in the world?</h1>
-      <div>
-        <label htmlFor="themeSwitch" className="label">
-          <input
-            type="checkbox"
-            id="themeSwitch"
-            className="toggle"
-            onClick={() => toggle()}
-          />
-          {dark ? (
-            <Sun
-              aria-hidden="true"
-              focusable="false"
-              className="theme-icon sun"
+      <div className="wrapper nav-wrapper">
+        <h1>Where in the world?</h1>
+        <div>
+          <label htmlFor="themeSwitch" className="label">
+            <input
+              type="checkbox"
+              id="themeSwitch"
+              className="toggle"
+              onClick={() => toggle()}
             />
-          ) : (
-            <Moon aria-hidden="true" focusable="false" className="theme-icon" />
-          )}
-
-          {dark ? "Light Mode" : "Dark Mode"}
-        </label>
+            {dark ? (
+              <Sun
+                aria-hidden="true"
+                focusable="false"
+                className="theme-icon sun"
+              />
+            ) : (
+              <Moon
+                aria-hidden="true"
+                focusable="false"
+                className="theme-icon"
+              />
+            )}
+            {dark ? "Light Mode" : "Dark Mode"}
+          </label>
+        </div>
       </div>
     </nav>
   );

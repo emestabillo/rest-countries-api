@@ -3,6 +3,8 @@
 
 @import "abstracts/variables", "abstracts/mixins";
 
-@import "base/base";
+@import "base/base", "base/helpers";
 
-@import "components/navbar", "components/searchbar", "components/filterdropdown";
+@import "components/navbar", "components/searchbar",
+  "components/filter-dropdown", "components/country-card",
+  "components/countries-list";
