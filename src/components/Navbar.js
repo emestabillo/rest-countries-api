@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { ReactComponent as Moon } from "../assets/icon-moon.svg";
+import { ReactComponent as Sun } from "../assets/icon-sun.svg";
 
 const Navbar = () => {
   const { dark, toggle } = useContext(ThemeContext);
@@ -16,7 +17,16 @@ const Navbar = () => {
             className="toggle"
             onClick={() => toggle()}
           />
-          <Moon aria-hidden="true" focusable="false" className="moon" />
+          {dark ? (
+            <Sun
+              aria-hidden="true"
+              focusable="false"
+              className="theme-icon sun"
+            />
+          ) : (
+            <Moon aria-hidden="true" focusable="false" className="theme-icon" />
+          )}
+
           {dark ? "Light Mode" : "Dark Mode"}
         </label>
       </div>

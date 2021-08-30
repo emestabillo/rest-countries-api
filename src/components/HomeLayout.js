@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchBar from "./SearchBar";
-// import FilterDropdown from "./FilterDropdown";
+import FilterDropdown from "./FilterDropdown";
 import CountriesList from "./CountriesList";
 
 const baseURL = "https://restcountries.eu/rest/v2/all";
@@ -54,13 +54,11 @@ const HomeLayout = () => {
   return (
     <>
       <SearchBar searchedTerm={searchedTerm} handleSearch={handleSearch} />
-      <select onChange={handleRegionChange} value={filteredRegion}>
-        <option value="">Filter by Region</option>
-        <option value="Africa">Africa</option>
-        <option value="America">America</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
-      </select>
+
+      <FilterDropdown
+        handleRegionChange={handleRegionChange}
+        filteredCountries={filteredCountries}
+      />
       <CountriesList
         filteredCountries={filteredCountries}
         filteredRegion={filteredRegion}
