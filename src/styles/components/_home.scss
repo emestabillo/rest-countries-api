@@ -1,0 +1,6 @@
+.header {
+  @include med {
+    display: flex;
+    justify-content: space-between;
+  }
+}

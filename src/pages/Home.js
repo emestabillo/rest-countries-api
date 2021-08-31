@@ -6,15 +6,20 @@ import CountriesList from "../components/CountriesList";
 
 const baseURL = "https://restcountries.eu/rest/v2/all";
 
-const HomeLayout = () => {
+const Home = () => {
   const [countries, setCountries] = useState(null);
   const [searchTerm, setSearchTerm] = React.useState("");
 
   //All countries
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setCountries(response.data);
-    });
+    axios
+      .get(baseURL)
+      .then((response) => {
+        setCountries(response.data);
+      })
+      .catch((error) => {
+        console.log("Error getting countries data: " + error);
+      });
     // eslint-disable-next-line
   }, []);
 
@@ -44,11 +49,13 @@ const HomeLayout = () => {
 
   return (
     <>
-      <SearchBar handleChange={handleChange} searchTerm={searchTerm} />
-      <FilterDropdown />
+      <header className="header">
+        <SearchBar handleChange={handleChange} searchTerm={searchTerm} />
+        <FilterDropdown />
+      </header>
       <CountriesList countries={countries} />
     </>
   );
 };
 
-export default HomeLayout;
+export default Home;
