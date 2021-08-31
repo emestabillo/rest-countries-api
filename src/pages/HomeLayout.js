@@ -1,54 +1,52 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchBar from "../components/SearchBar";
 import FilterDropdown from "../components/FilterDropdown";
 import CountriesList from "../components/CountriesList";
-import { ThemeContext } from "../context/ThemeContext";
-import { ReactComponent as SearchIcon } from "../assets/icon-search.svg";
+
 const baseURL = "https://restcountries.eu/rest/v2/all";
 
 const HomeLayout = () => {
-  const [allCountries, setAllCountries] = useState(null);
-  const { dark } = useContext(ThemeContext);
+  const [countries, setCountries] = useState(null);
+  const [searchTerm, setSearchTerm] = React.useState("");
+
   //All countries
   useEffect(() => {
     axios.get(baseURL).then((response) => {
-      setAllCountries(response.data);
+      setCountries(response.data);
     });
+    // eslint-disable-next-line
   }, []);
 
-  if (!allCountries) return null;
+  useEffect(() => {
+    const results = !searchTerm
+      ? countries
+      : countries.filter((c) =>
+          c.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    setCountries(results);
+  }, [searchTerm]);
 
-  const filterByRegion = async (region) => {
-    if (region === "") return;
-    const res = await fetch(
-      `https://restcountries.eu/rest/v2/region/${region}`
-    );
-    const data = await res.json();
-    await setAllCountries(data);
+  if (!countries) return null;
+
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
   };
 
-  const searchCountry = async (term) => {
-    if (term.length < 3 || term === "") return;
-    const res = await fetch(`https://restcountries.eu/rest/v2/name/${term}`);
-    const data = await res.json();
-    await console.log(data);
-    await setAllCountries(data);
-  };
+  // const filterByRegion = async (region) => {
+  //   if (region === "") return;
+  //   const res = await fetch(
+  //     `https://restcountries.eu/rest/v2/region/${region}`
+  //   );
+  //   const data = await res.json();
+  //   await setCountries(data);
+  // };
 
   return (
     <>
-      <form className="search" onSubmit={(e) => e.preventDefault()}>
-        <SearchIcon className={`search__icon ${dark ? "dark" : ""}`} />
-        <input
-          type="text"
-          className="search__input"
-          onChange={(e) => searchCountry(e.target.value)}
-          placeholder="Search for a country..."
-        />
-      </form>
-      <FilterDropdown filterByRegion={filterByRegion} />
-      <CountriesList allCountries={allCountries} />
+      <SearchBar handleChange={handleChange} searchTerm={searchTerm} />
+      <FilterDropdown />
+      <CountriesList countries={countries} />
     </>
   );
 };

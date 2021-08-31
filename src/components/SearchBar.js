@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { ReactComponent as SearchIcon } from "../assets/icon-search.svg";
 
-const SearchBar = ({ searchCountry }) => {
+const SearchBar = ({ handleChange, searchTerm }) => {
   const { dark } = useContext(ThemeContext);
   return (
     <form className="search" onSubmit={(e) => e.preventDefault()}>
@@ -10,7 +10,8 @@ const SearchBar = ({ searchCountry }) => {
       <input
         type="text"
         className="search__input"
-        onChange={(e) => searchCountry(e.target.value)}
+        onChange={handleChange}
+        value={searchTerm}
         placeholder="Search for a country..."
       />
     </form>

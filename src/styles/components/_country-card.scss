@@ -14,8 +14,9 @@
   }
 
   @include med {
-    margin: revert;
-    max-width: 24rem;
+    margin: unset;
+    // max-width: 24rem;
+    max-width: unset;
   }
 }
 

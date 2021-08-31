@@ -2,11 +2,11 @@ import React from "react";
 import { Row } from "react-bootstrap";
 import CountryCard from "./CountryCard";
 
-const CountriesList = ({ allCountries }) => {
+const CountriesList = ({ countries }) => {
   return (
     <>
       <Row as="section" className="countries-grid">
-        {allCountries.map((country, alpha3Code) => {
+        {countries.map((country, alpha3Code) => {
           const { name, population, region, capital, flag } = country;
           return (
             <CountryCard
