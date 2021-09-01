@@ -1,6 +1,10 @@
 .search {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+
+  @include xl {
+    margin-bottom: 0;
+  }
 }
 
 .search__icon {

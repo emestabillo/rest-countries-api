@@ -6,10 +6,6 @@
   box-sizing: border-box;
 }
 
-// *:not(body) {
-//   transition: all 0.2s ease;
-// }
-
 body {
   font-family: "Nunito Sans", sans-serif;
   color: var(--clr-text);
@@ -25,62 +21,25 @@ h1 {
 
 main {
   padding-top: 2rem;
-}
 
-h2,
-h3 {
-  // font-weight: var(--fw-bold);
-}
-
-h1 {
-  // font-weight: var(--fw-light);
-  // line-height: 4rem;
-  // letter-spacing: -0.4px;
-}
-
-h2 {
-  // line-height: 125%;
-  // letter-spacing: -0.4px;
-}
-
-h3 {
-  // font-size: 1.8rem;
-  // letter-spacing: -0.22px;
-}
-
-p,
-strong {
-  // font-size: 1.5rem;
-  // line-height: 167%;
-  // letter-spacing: -0.19px;
-}
-
-a,
-button {
-  // color: var(--clr-white);
-  // letter-spacing: 2px;
-  // text-decoration: none;
-  // text-transform: uppercase;
-  // font-size: 1.4rem;
-  // font-weight: var(--fw-semi-bold);
-  // line-height: 114%;
+  @include xl {
+    padding-top: 5rem;
+  }
 }
 
 a,
 button,
-input,
-select,
-.phone {
-  // &:focus {
-  //   outline: 2px dotted var(--clr-beaver);
-  //   outline-offset: 4px;
-  // }
+input {
+  &:focus {
+    outline: 2px dotted var(--clr-text);
+    outline-offset: 4px;
+  }
 
-  // &::-moz-focus-inner {
-  //   border: 0;
-  // }
+  &::-moz-focus-inner {
+    border: 0;
+  }
 }
 
 li {
-  // list-style: none;
+  list-style: none;
 }

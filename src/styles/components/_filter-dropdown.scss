@@ -7,7 +7,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.875rem 1.5rem;
-    margin-bottom: 2rem;
     cursor: pointer;
     background-color: var(--clr-accent);
     font-family: inherit;
@@ -23,9 +22,9 @@
   }
 
   &__container {
-    list-style: none;
     max-height: 0;
     opacity: 0;
+    visibility: hidden;
     background-color: var(--clr-accent);
     position: absolute;
     z-index: 2;
@@ -58,6 +57,7 @@
 .active {
   opacity: 1;
   max-height: 14rem;
+  visibility: visible;
 }
 
 .rotate {

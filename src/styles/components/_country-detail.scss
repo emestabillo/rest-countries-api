@@ -41,6 +41,7 @@
     max-width: revert;
     display: flex;
     gap: 8%;
+    padding-top: 5rem;
   }
 
   &__flag {
@@ -75,7 +76,7 @@
   &__list {
     @include med {
       display: flex;
-      justify-content: space-between;
+      gap: 9vw;
     }
   }
 
@@ -85,10 +86,6 @@
     > * + * {
       padding-top: 1rem;
     }
-  }
-
-  &__item {
-    list-style: none;
   }
 }
 
@@ -100,6 +97,7 @@
   @include lg {
     display: flex;
     gap: 1rem;
+    padding-top: 4.25rem;
   }
 
   &__heading {
