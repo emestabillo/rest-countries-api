@@ -3,7 +3,6 @@ import { ThemeContext } from "../context/ThemeContext";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { ReactComponent as Arrow } from "../assets/icon-arrow.svg";
-import { Col, Row } from "react-bootstrap";
 
 const CountryDetail = () => {
   const [country, setCountry] = useState([]);
@@ -56,15 +55,13 @@ const CountryDetail = () => {
         } = c;
 
         return (
-          <Row as="article" className="detail-card">
-            <Col lg={6}>
-              <img
-                src={flag}
-                alt={`Flag of ${name}`}
-                className="detail-card__flag "
-              />
-            </Col>
-            <Col className="facts lg={6}">
+          <article className="detail-card">
+            <img
+              src={flag}
+              alt={`Flag of ${name}`}
+              className="detail-card__flag "
+            />
+            <div className="detail-card__facts lg={6}">
               <h1 className="detail-card__name">{name}</h1>
               <div className="detail-card__list">
                 <ul className="detail-card__column">
@@ -144,8 +141,8 @@ const CountryDetail = () => {
                   </div>
                 </div>
               )}
-            </Col>
-          </Row>
+            </div>
+          </article>
         );
       })}
     </>

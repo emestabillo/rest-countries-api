@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Col } from "react-bootstrap";
 
 const CountryCard = ({ name, population, region, capital, flag }) => {
   return (
-    <Col as="article" md={4} xl={3} className="card">
+    <article className="card">
       <Link to={`/countries/${name}`} className="card__link">
         <img src={flag} alt={`Flag of ${name}`} className="card__flag" />
         <div className="card__info">
@@ -27,7 +26,7 @@ const CountryCard = ({ name, population, region, capital, flag }) => {
           </ul>
         </div>
       </Link>
-    </Col>
+    </article>
   );
 };
 

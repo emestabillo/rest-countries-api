@@ -1,7 +1,9 @@
 .countries-grid {
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(264px, 1fr));
+  gap: 2.5rem;
 
   @include med {
-    gap: 2.5rem;
+    // gap: 4.6875rem;
   }
 }

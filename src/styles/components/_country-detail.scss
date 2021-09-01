@@ -37,8 +37,9 @@
     font-size: 1rem;
   }
 
-  @include lg {
+  @include xl {
     max-width: revert;
+    display: flex;
     gap: 8%;
   }
 
@@ -46,9 +47,24 @@
     display: block;
     object-fit: cover;
     width: 100%;
-    border-radius: 0.625rem;
     overflow: hidden;
     margin-bottom: 2.75rem;
+    max-width: 35rem;
+
+    @include med {
+      margin: 0 auto;
+      padding-bottom: 2rem;
+    }
+
+    @include xl {
+      flex: 1;
+    }
+  }
+
+  &__facts {
+    @include xl {
+      flex: 1;
+    }
   }
 
   &__name {
