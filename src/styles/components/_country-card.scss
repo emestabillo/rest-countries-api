@@ -16,32 +16,33 @@
     margin: unset;
     max-width: unset;
   }
-}
 
-.card__flag {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  height: 50%;
-}
+  &__flag {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 50%;
+  }
 
-.card__info {
-  padding: 1.5rem 1.5rem 2.875rem;
-}
+  &__info {
+    padding: 1.5rem 1.5rem 2.875rem;
+  }
 
-.card__link {
-  text-decoration: none;
-  color: inherit;
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 .list {
   padding-top: 1rem;
-}
 
-.list__item {
-  padding-bottom: 0.5rem;
-}
+  &__item {
+    padding-bottom: 0.5rem;
+    font-weight: var(--fw-light);
+  }
 
-.list__label {
-  font-weight: var(--fw-semi-bold);
+  &__label {
+    font-weight: var(--fw-semi-bold);
+  }
 }
