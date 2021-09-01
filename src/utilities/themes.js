@@ -7,7 +7,7 @@ export const darkTheme = [
 
 export const lightTheme = [
   "--clr-text: hsl(200, 15%, 8%)",
-  "--clr-background: hsl(0, 0%, 95%)",
+  "--clr-background: hsl(0, 0%, 98%)",
   "--clr-accent: hsl(0, 0%, 100%)",
   "--clr-input: hsl(0, 0%, 52%)",
 ];
