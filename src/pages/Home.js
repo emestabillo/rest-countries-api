@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import SearchBar from "../components/SearchBar";
 import FilterDropdown from "../components/FilterDropdown";
@@ -8,7 +8,10 @@ const baseURL = "https://restcountries.eu/rest/v2/all";
 
 const Home = () => {
   const [countries, setCountries] = useState(null);
-  const [searchTerm, setSearchTerm] = React.useState("");
+  // const [searchTerm, setSearchTerm] = React.useState("");
+
+  const [countrySearch, setCountrySearch] = useState("");
+  const [regionSearch, setRegionSearch] = useState("");
 
   //All countries
   useEffect(() => {
@@ -20,40 +23,30 @@ const Home = () => {
       .catch((error) => {
         console.log("Error getting countries data: " + error);
       });
+
+    console.log(countries);
     // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {
-    const results = !searchTerm
-      ? countries
-      : countries.filter((c) =>
-          c.name.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-    setCountries(results);
-  }, [searchTerm]);
-
   if (!countries) return null;
 
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
+  const filteredCountries = countries.filter(
+    (country) =>
+      country.name.toLowerCase().includes(countrySearch.toLowerCase()) &&
+      country.region.toLowerCase().includes(regionSearch.toLowerCase())
+  );
 
-  // const filterByRegion = async (region) => {
-  //   if (region === "") return;
-  //   const res = await fetch(
-  //     `https://restcountries.eu/rest/v2/region/${region}`
-  //   );
-  //   const data = await res.json();
-  //   await setCountries(data);
-  // };
+  const handleChange = (e) => setCountrySearch(e.target.value);
+  const regionChange = (e) =>
+    e ? setRegionSearch(e.label) : setRegionSearch("");
 
   return (
     <>
       <header className="header">
-        <SearchBar handleChange={handleChange} searchTerm={searchTerm} />
+        <SearchBar handleChange={handleChange} countrySearch={countrySearch} />
         <FilterDropdown />
       </header>
-      <CountriesList countries={countries} />
+      <CountriesList countries={filteredCountries} />
     </>
   );
 };
