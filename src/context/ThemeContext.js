@@ -36,7 +36,7 @@ export const ThemeProvider = (props) => {
     setDark(!dark);
     window.localStorage.setItem("darkTheme", !dark);
     const body = document.getElementsByTagName("body")[0];
-    body.style.cssText = "transition: background .5s ease";
+    body.style.cssText = "transition: background .25s ease";
   };
   return (
     <ThemeContext.Provider

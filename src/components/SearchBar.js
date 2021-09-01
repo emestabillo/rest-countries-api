@@ -9,6 +9,7 @@ const SearchBar = ({ handleChange, searchTerm }) => {
       <SearchIcon className={`search__icon ${dark ? "dark" : ""}`} />
       <input
         type="text"
+        aria-label="search countries"
         className="search__input"
         onChange={handleChange}
         value={searchTerm}

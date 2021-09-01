@@ -23,9 +23,16 @@
   box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px,
     rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
   transition: box-shadow 0.2s ease;
+  font-weight: var(--fw-semi-bold);
+  font-size: 0.75rem;
+  line-height: 1.3;
 
   &:hover {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  @include xl {
+    font-size: 1rem;
   }
 }
 
