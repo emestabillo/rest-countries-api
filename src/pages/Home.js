@@ -1,32 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
-
 import FilterDropdown from "../components/FilterDropdown";
 import CountriesList from "../components/CountriesList";
 
-const baseURL = "https://restcountries.eu/rest/v2/all";
-
-const Home = () => {
-  const [countries, setCountries] = useState(null);
+const Home = ({ countries }) => {
   const [countrySearch, setCountrySearch] = useState("");
   const [regionSearch, setRegionSearch] = useState("");
-
-  //All countries
-  useEffect(() => {
-    axios
-      .get(baseURL)
-      .then((response) => {
-        setCountries(response.data);
-      })
-      .catch((error) => {
-        console.log("Error getting countries data: " + error);
-      });
-
-    // eslint-disable-next-line
-  }, []);
-
-  if (!countries) return null;
 
   const filteredCountries = countries.filter(
     (country) =>

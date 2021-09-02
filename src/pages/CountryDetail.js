@@ -1,31 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
-import { Link, useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { ReactComponent as Arrow } from "../assets/icon-arrow.svg";
 
-const CountryDetail = () => {
+const CountryDetail = ({ countries }) => {
   const [country, setCountry] = useState([]);
   const { name } = useParams();
   const { dark } = useContext(ThemeContext);
-
-  // //Create history reference
-  // let history = useHistory();
-
-  // //get country alpha3Code from url
-  // let { countryCode } = useParams();
-
-  // //filter through data and find matching country
-  // let countryData = filteredCountries.filter((country) =>
-  //   country.alpha3Code.toLowerCase().includes(countryCode)
-  // )[0];
 
   useEffect(() => {
     axios
       .get(`https://restcountries.eu/rest/v2/name/${name}`)
       .then((response) => {
         setCountry(response.data);
-        console.log(country);
       })
       .catch((error) => {
         console.log(error);
@@ -52,10 +40,11 @@ const CountryDetail = () => {
           currencies,
           languages,
           borders,
+          alpha3Code,
         } = c;
 
         return (
-          <article className="detail-card">
+          <article key={alpha3Code} className="detail-card">
             <img
               src={flag}
               alt={`Flag of ${name}`}
@@ -127,14 +116,18 @@ const CountryDetail = () => {
                 <div className="borders">
                   <h2 className="borders__heading">Border Countries:</h2>
                   <div className="borders__container">
-                    {borders.map((border, i) => {
+                    {c.borders.map((border) => {
+                      let borderData = countries.filter((country) =>
+                        country.alpha3Code.includes(border)
+                      )[0];
+                      const { name } = borderData;
                       return (
                         <Link
-                          to={`/countries/${name}`}
+                          key={`button-${borderData.alpha3Code}`}
                           className="borders__link"
-                          key={i}
+                          to={`/countries/${name}`}
                         >
-                          {border}
+                          {borderData.name}
                         </Link>
                       );
                     })}
