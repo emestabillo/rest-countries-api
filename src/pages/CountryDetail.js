@@ -3,11 +3,14 @@ import { ThemeContext } from "../context/ThemeContext";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { ReactComponent as Arrow } from "../assets/icon-arrow.svg";
+import { useHistory } from "react-router-dom";
 
 const CountryDetail = ({ countries }) => {
   const [country, setCountry] = useState([]);
   const { name } = useParams();
   const { dark } = useContext(ThemeContext);
+
+  const history = useHistory();
 
   useEffect(() => {
     axios
@@ -19,7 +22,7 @@ const CountryDetail = ({ countries }) => {
         console.log(error);
       });
     // eslint-disable-next-line
-  }, []);
+  }, [name]);
 
   return (
     <>
@@ -120,15 +123,17 @@ const CountryDetail = ({ countries }) => {
                       let borderData = countries.filter((country) =>
                         country.alpha3Code.includes(border)
                       )[0];
-                      const { name } = borderData;
+
                       return (
-                        <Link
+                        <button
                           key={`button-${borderData.alpha3Code}`}
                           className="borders__link"
-                          to={`/countries/${name}`}
+                          onClick={() => {
+                            history.push({ pathname: borderData.name });
+                          }}
                         >
                           {borderData.name}
-                        </Link>
+                        </button>
                       );
                     })}
                   </div>
