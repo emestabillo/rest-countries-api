@@ -2,27 +2,24 @@ import React, { useState, useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import { ReactComponent as Chevron } from "../assets/icon-chevron.svg";
 
-const FilterDropdown = ({ filterByRegion }) => {
+const FilterDropdown = ({ setRegionSearch }) => {
   const { dark } = useContext(ThemeContext);
-  const [filter, setFilter] = useState("");
   const [droppedDown, setDroppedDown] = useState(false);
-  const listItem = [...document.querySelectorAll(".filter__item")];
+
+  const regions = ["africa", "america", "asia", "europe", "oceania", "polar"];
 
   const showFilterOptions = () => {
     setDroppedDown(!droppedDown);
   };
 
-  // const handleRegionClick = (filterByRegion) => {
-  //   setFilter(filterByRegion(val.target.value));
-  //   setDroppedDown(!droppedDown);
-  // };
-
-  // listItem.forEach((region) =>
-  //   region.addEventListener("click", (e) => {
-  //     setFilter(e.target.dataset.region);
-  //     setDroppedDown(!droppedDown);
-  //   })
-  // );
+  const handleRegionClick = (e) => {
+    if (e) {
+      setRegionSearch(e.target.innerText);
+      showFilterOptions();
+    } else {
+      setRegionSearch("");
+    }
+  };
 
   return (
     <div className="filter">
@@ -35,48 +32,17 @@ const FilterDropdown = ({ filterByRegion }) => {
         />
       </button>
       <ul className={`filter__container ${droppedDown ? "active" : ""}`}>
-        <li
-          className="filter__item"
-          value="africa"
-          onClick={(val) => filterByRegion(val.target.value)}
-        >
-          Africa
-        </li>
-        <li
-          className="filter__item"
-          value="americas"
-          onClick={(val) => filterByRegion(val.target.value)}
-        >
-          Americas
-        </li>
-        <li
-          className="filter__item"
-          value="asia"
-          onClick={(val) => filterByRegion(val.target.value)}
-        >
-          Asia
-        </li>
-        <li
-          className="filter__item"
-          value="europe"
-          onClick={(val) => filterByRegion(val.target.value)}
-        >
-          Europe
-        </li>
-        <li
-          className="filter__item"
-          value="oceania"
-          onChange={(val) => filterByRegion(val.target.value)}
-        >
-          Oceania
-        </li>
-        <li
-          className="filter__item"
-          value="asia"
-          onClick={(val) => filterByRegion(val.target.value)}
-        >
-          Polar
-        </li>
+        {regions.map((region) => {
+          return (
+            <li
+              key={region}
+              className="filter__item"
+              onClick={handleRegionClick}
+            >
+              {region}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

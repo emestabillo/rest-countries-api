@@ -7,7 +7,6 @@
   font-size: 0.875rem;
   background: var(--clr-accent);
   transition: transform 0.2s ease;
-  max-width: 16.5rem;
 
   &:hover {
     transform: translateY(-0.625rem);
@@ -15,7 +14,6 @@
 
   @include med {
     margin: unset;
-    // max-width: unset;
   }
 
   &__flag {
