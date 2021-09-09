@@ -20,10 +20,10 @@ h1 {
 }
 
 main {
-  padding-top: 2rem;
+  padding: 2rem 0;
 
   @include xl {
-    padding-top: 3rem;
+    padding: 3rem;
   }
 }
 
